@@ -1,9 +1,12 @@
 # WAKA-KOTAHI-CRASH-ANALYSIS
-Built a Power Bi dashboard to analyse 814772 traffic crashes reported since January 2000 to Waka Kotahi by New Zealand police
-
-New Zealand Waka Kotahi Crash Analysis Dashboard (2000-2022)
-1	Questions to answer/KPIs 
-		1.1	What is the total number of crashes 
+## Project objective:
+Builing a Power Bi dashboard to analyse 814772 traffic crashes reported since January 2000 to Waka Kotahi by New Zealand police
+## Tools:
+- Data Cleaning: DAX coding
+- Visualization: Power Bi
+## New Zealand Waka Kotahi Crash Analysis Dashboard (2000-2022)
+### 1	Questions to answer/KPIs 
+ 		1.1	What is the total number of crashes 
 		1.2	What is the total number of casualties involved
 		1.3	What is the total number of fatal crashes
 		1.4	What is the total number of fatal casualties
@@ -15,8 +18,9 @@ New Zealand Waka Kotahi Crash Analysis Dashboard (2000-2022)
 		1.10	What is the distribution of fatal casualties by the type of area (open or urban) where the crash happened?
 		1.11	What is the distribution of fatal casualties by the district(city) area where the crash happened?
 
-2	Data cleansing
+### 2	Data cleansing
 		2.1	Downloading crash data in CSV format from Waka Kotahi Crash Analysis System on:
+
 				•	https://opendata-nzta.opendata.arcgis.com/search?tags=CAS
 		2.2	Replaced the “No” value in “crashSHDescription" column with “0”.
 				•	DAX Code used: 
@@ -32,7 +36,7 @@ New Zealand Waka Kotahi Crash Analysis Dashboard (2000-2022)
 		 			= Table.AddColumn(#"Filtered Rows", "Merged", each Text.Combine({[tlaName], ", New Zealand"}), type text)
 		2.6	= Table.AddColumn(#"Filtered Rows", "Merged", each Text.Combine({[tlaName], ", New Zealand"}), type text)
 		
-3	KPIs/Measures
+### 3	KPIs/Measures
 		3.1	GENERAL MEASURES
 				•	Used separate cards to present these KPIs
 			3.1.1	Total Crashes
@@ -40,8 +44,7 @@ New Zealand Waka Kotahi Crash Analysis Dashboard (2000-2022)
 					Total_Crashes = COUNT('Crash_Analysis_System_(CAS)_data'[X])
 			3.1.2	Total Casualties
 				•	DAX code used:
-					Total_Casualties = sum('Crash_Analysis_System_(CAS)_data'[fatalCount]) + sum('Crash_Analysis_System_(CAS)_data'[minorInjuryCount]) + 				 
-          sum('Crash_Analysis_System_(CAS)_data'[seriousInjuryCount]) 
+					Total_Casualties = sum('Crash_Analysis_System_(CAS)_data'[fatalCount]) + sum('Crash_Analysis_System_(CAS)_data'[minorInjuryCount]) + sum('Crash_Analysis_System_(CAS)_data'[seriousInjuryCount]) 
 			3.1.3	Fatal Crashes
 				•	DAX code used: 
 					Fatal_Crashes = CALCULATE(COUNT('Crash_Analysis_System_(CAS)_data'[X]),'Crash_Analysis_System_(CAS)_data'[fatalCount]<>0) 
