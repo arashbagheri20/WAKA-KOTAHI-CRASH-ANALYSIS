@@ -18,7 +18,7 @@ Builing a Power Bi dashboard to analyse 814772 traffic crashes reported since Ja
 		1.10	What is the distribution of fatal casualties by the type of area (open or urban) where the crash happened?
 		1.11	What is the distribution of fatal casualties by the district(city) area where the crash happened?
 
-### 2	Data cleansing
+### 2	Data cleaning
 		2.1	Downloading crash data in CSV format from Waka Kotahi Crash Analysis System on:
 
 				•	https://opendata-nzta.opendata.arcgis.com/search?tags=CAS
